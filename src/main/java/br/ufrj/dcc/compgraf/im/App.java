@@ -17,6 +17,13 @@ public class App {
   {
     try {
       BufferedImage image = ImageLoader.loadImage();
+      
+      if (image == null)
+      {
+        log.debug("No image was selected, stopping...");
+        return;
+      }
+      
       BufferedImage newImage = new Cropper(image).crop(20, 0, 100, 80);
       
       ImageIO.write(newImage, "jpeg", new File("dest1.jpg"));

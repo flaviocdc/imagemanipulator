@@ -14,7 +14,7 @@ public class ImageLoader {
   {
     File selectedFile = FileChooser.chooseFile("/export/home/andromeda/flavio/Desktop/SIGA/");
     
-    return ImageIO.read(selectedFile);
+    return selectedFile == null ? null : ImageIO.read(selectedFile);
   }
   
 }
