@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 
 import org.apache.log4j.Logger;
 
+import br.ufrj.dcc.compgraf.im.crop.Cropper;
 import br.ufrj.dcc.compgraf.im.ui.FileChooser;
 
 public class App {
@@ -33,7 +34,9 @@ public class App {
         }
       }
       
-      ImageIO.write(newImage, "jpeg", new File("dest.jpg"));
+      newImage = new Cropper(image).crop(20, 0, 100, 80);
+      
+      ImageIO.write(newImage, "jpeg", new File("dest1.jpg"));
       
     } catch (IOException e) {
       log.error(e, e);
