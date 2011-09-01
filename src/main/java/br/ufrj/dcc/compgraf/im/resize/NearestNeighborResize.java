@@ -2,11 +2,15 @@ package br.ufrj.dcc.compgraf.im.resize;
 
 import java.awt.image.BufferedImage;
 
-public class NearestNeighborResize implements Resize {
+public class NearestNeighborResize extends KeepAspectRatioResize {
 
-  public BufferedImage resize(BufferedImage originalImage, int newX, int newY) {
+  public BufferedImage resize(KeepAspectRatioType type, BufferedImage originalImage, int newX, int newY) {
     int originalX = originalImage.getWidth();
     int originalY = originalImage.getHeight();
+
+    ImageSize size = calculateImageSize(type, originalX, originalY, newX, newY);
+    newX = size.getWidth();
+    newY = size.getHeight();
 
     BufferedImage img = new BufferedImage(newX, newY, BufferedImage.TYPE_INT_RGB);
     
