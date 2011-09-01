@@ -32,31 +32,35 @@
 package br.ufrj.dcc.compgraf.im.ui;
 
 import java.io.File;
+import java.util.Set;
+import java.util.TreeSet;
 
+import javax.imageio.ImageIO;
 import javax.swing.filechooser.FileFilter;
 
-/* ImageFilter.java is used by FileChooserDemo2.java. */
 public class ImageFilter extends FileFilter {
 
-  // Accept all directories and all gif, jpg, tiff, or png files.
   public boolean accept(File f) {
     if (f.isDirectory()) {
       return true;
     }
 
-     String extension = extractExtension(f);
-
-    if (extension != null) {
-      if (extension.equals("tiff") || extension.equals("tif")
-          || extension.equals("gif") || extension.equals("jpeg")
-          || extension.equals("jpg") || extension.equals("png")) {
-        return true;
-      } else {
-        return false;
-      }
+    Set<String> supportedFormats = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
+    for (String format : ImageIO.getReaderFileSuffixes())
+    {
+      supportedFormats.add(format.toLowerCase());
     }
+    
+    String extension = extractExtension(f);
 
-    return false;
+    if (extension != null)
+    {
+      return supportedFormats.contains(extension);
+    }
+    else
+    {
+      return false;
+    }    
   }
 
   private String extractExtension(File f) {
@@ -69,6 +73,12 @@ public class ImageFilter extends FileFilter {
 
   // The description of this filter
   public String getDescription() {
-    return "Just Images";
+    StringBuffer sb = new StringBuffer();
+    for (String format : ImageIO.getReaderFileSuffixes())
+    {
+      sb.append("*.").append(format).append(", ");
+    }
+    
+    return sb.delete(sb.length() - 2, sb.length() - 1).toString();
   }
 }
