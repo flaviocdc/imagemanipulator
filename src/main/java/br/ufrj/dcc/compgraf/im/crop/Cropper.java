@@ -26,7 +26,6 @@ public class Cropper {
     {
       for (int y = starty, newy = 0; y < endy; y++, newy++)
       {
-        log.debug("Original: " + x + "x" + y + " - Novo: " + newx + "x" + newy);
         img.setRGB(newx, newy, originalImage.getRGB(x, y));
       }
     }
