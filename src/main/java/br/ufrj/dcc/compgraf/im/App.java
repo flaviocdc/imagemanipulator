@@ -20,24 +20,9 @@ public class App {
     
     try {
       BufferedImage image = ImageIO.read(selectedFile);
-      
-      int newImageX = 80, newImageY = 80;
-      
-      BufferedImage newImage = new BufferedImage(newImageX, newImageY, BufferedImage.TYPE_INT_RGB);
-      
-      for (int x = 20, newx = 0; x < 100; x++, newx++)
-      {
-        for (int y = 0, newy = 0; y < 80; y++, newy++)
-        {
-          log.debug("Original: " + x + "x" + y + " - Novo: " + newx + "x" + newy);
-          newImage.setRGB(newx, newy, image.getRGB(x, y));
-        }
-      }
-      
-      newImage = new Cropper(image).crop(20, 0, 100, 80);
+      BufferedImage newImage = new Cropper(image).crop(20, 0, 100, 80);
       
       ImageIO.write(newImage, "jpeg", new File("dest1.jpg"));
-      
     } catch (IOException e) {
       log.error(e, e);
     }
