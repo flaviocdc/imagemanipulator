@@ -11,6 +11,7 @@ public class UIContext
 
   private BufferedImage currentImage;
   private JScrollPane imageScrollPane;
+  private MainWindow mainWindow;
   
   private UIContext() {}
   
@@ -42,5 +43,15 @@ public class UIContext
     ScrollablePicture scrlImg = new ScrollablePicture(icon);
     
     imageScrollPane.setViewportView(scrlImg);
+  }
+
+  public MainWindow getMainWindow()
+  {
+    return mainWindow;
+  }
+
+  public void setMainWindow(MainWindow mainWindow)
+  {
+    this.mainWindow = mainWindow;
   }
 }

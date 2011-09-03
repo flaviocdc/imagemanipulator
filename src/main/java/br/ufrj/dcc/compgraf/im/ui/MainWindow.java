@@ -25,6 +25,8 @@ public class MainWindow extends JFrame
   {
     super("Image Manipulator");
     
+    UIContext.instance().setMainWindow(this);
+    
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setVisible(true);
     
