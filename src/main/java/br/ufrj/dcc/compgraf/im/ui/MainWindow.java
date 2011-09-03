@@ -47,17 +47,21 @@ public class MainWindow extends JFrame
     mainPanel.add(new JLabel("Botoes"));
     mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
     
+    createImageCanvas();
+    
+    mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
+  }
+
+  private void createImageCanvas()
+  {
     ScrollablePicture scrollableImage = new ScrollablePicture(null);
     JScrollPane imageScrollPane = new JScrollPane(scrollableImage, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     imageScrollPane.setPreferredSize(new Dimension(500, 500));
     imageScrollPane.setViewportBorder(BorderFactory.createLineBorder(Color.BLACK));
     
     mainPanel.add(imageScrollPane);
+    
     UIContext.instance().setImageScrollPane(imageScrollPane);
-    
-    mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
-    
-    //canvasContainer.add(canvas, BorderLayout.CENTER);
   }
 
   private void createMenu()
