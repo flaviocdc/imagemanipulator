@@ -1,9 +1,10 @@
 package br.ufrj.dcc.compgraf.im.resize;
 
+public abstract class KeepAspectRatioResize implements Resize
+{
 
-public abstract class KeepAspectRatioResize implements Resize {
-  
-  public enum KeepAspectRatioType {
+  public enum KeepAspectRatioType
+  {
     HORIZONTAL, VERTICAL, NONE
   }
 
@@ -15,7 +16,8 @@ public abstract class KeepAspectRatioResize implements Resize {
     }
     else
     {
-      if (type == KeepAspectRatioType.HORIZONTAL) {
+      if (type == KeepAspectRatioType.HORIZONTAL)
+      {
         double resizeRatio = originalX / (double) newX;
         newY = (int) (originalY / resizeRatio);
       }
@@ -24,7 +26,7 @@ public abstract class KeepAspectRatioResize implements Resize {
         double resizeRatio = originalY / (double) newY;
         newX = (int) (originalX / resizeRatio);
       }
-      
+
       return new ImageSize(newX, newY);
     }
   }

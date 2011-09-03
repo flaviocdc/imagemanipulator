@@ -31,7 +31,7 @@ public class Flip
   private BufferedImage flipVertically(BufferedImage source)
   {
     BufferedImage newImg = new BufferedImage(source.getWidth(), source.getHeight(), BufferedImage.TYPE_INT_RGB);
-    
+
     for (int x = 0; x < source.getWidth(); x++)
     {
       for (int y = 0; y < source.getHeight(); y++)
@@ -39,14 +39,14 @@ public class Flip
         newImg.setRGB(x, source.getHeight() - y - 1, source.getRGB(x, y));
       }
     }
-    
+
     return newImg;
   }
 
   private BufferedImage flipHorizontally(BufferedImage source)
   {
     BufferedImage newImg = new BufferedImage(source.getWidth(), source.getHeight(), BufferedImage.TYPE_INT_RGB);
-    
+
     for (int x = 0; x < source.getWidth(); x++)
     {
       for (int y = 0; y < source.getHeight(); y++)
@@ -54,7 +54,7 @@ public class Flip
         newImg.setRGB(source.getWidth() - x - 1, y, source.getRGB(x, y));
       }
     }
-    
+
     return newImg;
   }
 }

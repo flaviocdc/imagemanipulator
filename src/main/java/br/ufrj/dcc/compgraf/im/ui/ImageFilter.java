@@ -38,10 +38,13 @@ import java.util.TreeSet;
 import javax.imageio.ImageIO;
 import javax.swing.filechooser.FileFilter;
 
-public class ImageFilter extends FileFilter {
+public class ImageFilter extends FileFilter
+{
 
-  public boolean accept(File f) {
-    if (f.isDirectory()) {
+  public boolean accept(File f)
+  {
+    if (f.isDirectory())
+    {
       return true;
     }
 
@@ -50,7 +53,7 @@ public class ImageFilter extends FileFilter {
     {
       supportedFormats.add(format.toLowerCase());
     }
-    
+
     String extension = extractExtension(f);
 
     if (extension != null)
@@ -60,25 +63,26 @@ public class ImageFilter extends FileFilter {
     else
     {
       return false;
-    }    
+    }
   }
 
-  private String extractExtension(File f) {
+  private String extractExtension(File f)
+  {
     if (f.getAbsolutePath().lastIndexOf('.') == -1)
       return null;
 
-    return f.getAbsolutePath().substring(
-        f.getAbsolutePath().lastIndexOf('.') + 1);
+    return f.getAbsolutePath().substring(f.getAbsolutePath().lastIndexOf('.') + 1);
   }
 
   // The description of this filter
-  public String getDescription() {
+  public String getDescription()
+  {
     StringBuffer sb = new StringBuffer();
     for (String format : ImageIO.getReaderFileSuffixes())
     {
       sb.append("*.").append(format).append(", ");
     }
-    
+
     return sb.delete(sb.length() - 2, sb.length() - 1).toString();
   }
 }

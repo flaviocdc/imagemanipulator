@@ -8,13 +8,14 @@ import javax.imageio.ImageIO;
 
 import br.ufrj.dcc.compgraf.im.ui.FileChooser;
 
-public class ImageLoader {
+public class ImageLoader
+{
 
-  public static BufferedImage loadImage() throws IOException 
+  public static BufferedImage loadImage() throws IOException
   {
     File selectedFile = FileChooser.chooseFile(".");
-    
+
     return selectedFile == null ? null : ImageIO.read(selectedFile);
   }
-  
+
 }
