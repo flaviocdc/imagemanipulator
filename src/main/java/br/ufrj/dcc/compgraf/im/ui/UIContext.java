@@ -1,9 +1,17 @@
 package br.ufrj.dcc.compgraf.im.ui;
 
+import java.awt.image.BufferedImage;
+
+import javax.swing.ImageIcon;
+import javax.swing.JScrollPane;
+
 public class UIContext
 {
   private static UIContext instance;
 
+  private BufferedImage currentImage;
+  private JScrollPane imageScrollPane;
+  
   private UIContext() {}
   
   public static UIContext instance()
@@ -16,4 +24,23 @@ public class UIContext
     return instance;
   }
   
+  public BufferedImage getCurrentImage()
+  {
+    return currentImage;
+  }
+
+  public void setImageScrollPane(JScrollPane imageScrollPane)
+  {
+    this.imageScrollPane = imageScrollPane;
+  }
+  
+  public void changeCurrentImage(BufferedImage image)
+  {
+    currentImage = image;
+    
+    ImageIcon icon = new ImageIcon(image);
+    ScrollablePicture scrlImg = new ScrollablePicture(icon);
+    
+    imageScrollPane.setViewportView(scrlImg);
+  }
 }

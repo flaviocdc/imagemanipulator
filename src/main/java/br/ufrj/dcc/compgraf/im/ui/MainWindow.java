@@ -1,16 +1,26 @@
 package br.ufrj.dcc.compgraf.im.ui;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
+
+import br.ufrj.dcc.compgraf.im.ui.actions.OpenFileActionListener;
 
 public class MainWindow extends JFrame
 {
+ 
+  private JPanel mainPanel;
   
   public MainWindow()
   {
@@ -28,10 +38,26 @@ public class MainWindow extends JFrame
   
   private void initLayout()
   {
-    setLayout(new BorderLayout(5, 5));
+    mainPanel = new JPanel();
+    mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
     
-    add(new Canvas(), BorderLayout.CENTER);
-    add(new JLabel("Teste"), BorderLayout.LINE_START);
+    add(mainPanel);
+    
+    mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
+    mainPanel.add(new JLabel("Botoes"));
+    mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
+    
+    ScrollablePicture scrollableImage = new ScrollablePicture(null);
+    JScrollPane imageScrollPane = new JScrollPane(scrollableImage, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+    imageScrollPane.setPreferredSize(new Dimension(500, 500));
+    imageScrollPane.setViewportBorder(BorderFactory.createLineBorder(Color.BLACK));
+    
+    mainPanel.add(imageScrollPane);
+    UIContext.instance().setImageScrollPane(imageScrollPane);
+    
+    mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
+    
+    //canvasContainer.add(canvas, BorderLayout.CENTER);
   }
 
   private void createMenu()
@@ -43,6 +69,8 @@ public class MainWindow extends JFrame
     JMenuItem openMenuItem = new JMenuItem("Open");
     JMenuItem saveMenuItem = new JMenuItem("Save");
     JMenuItem closeMenuItem = new JMenuItem("Close");
+    
+    openMenuItem.addActionListener(new OpenFileActionListener());
     
     fileMenu.add(openMenuItem);
     fileMenu.add(saveMenuItem);
