@@ -12,7 +12,7 @@ public class ImageLoader {
 
   public static BufferedImage loadImage() throws IOException 
   {
-    File selectedFile = FileChooser.chooseFile("/export/home/andromeda/flavio/Desktop/SIGA/");
+    File selectedFile = FileChooser.chooseFile(".");
     
     return selectedFile == null ? null : ImageIO.read(selectedFile);
   }
