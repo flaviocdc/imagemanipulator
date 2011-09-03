@@ -2,6 +2,9 @@ package br.ufrj.dcc.compgraf.im.transform;
 
 import java.awt.image.BufferedImage;
 
+/**
+ * http://www.cs.nott.ac.uk/~smx/IVIPracticals/exercise1.html
+ */
 public class Flip
 {
   public enum FlipOrientation

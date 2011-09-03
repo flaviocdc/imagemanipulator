@@ -4,6 +4,9 @@ import java.awt.image.BufferedImage;
 
 import org.apache.log4j.Logger;
 
+/**
+ * http://www.cs.nott.ac.uk/~smx/IVIPracticals/exercise1.html 
+ */
 public class Rotate
 {
 

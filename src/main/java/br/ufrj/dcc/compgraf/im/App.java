@@ -8,6 +8,8 @@ import javax.imageio.ImageIO;
 
 import org.apache.log4j.Logger;
 
+import br.ufrj.dcc.compgraf.im.color.GreyScale;
+import br.ufrj.dcc.compgraf.im.color.GreyScale.GreyScaleType;
 import br.ufrj.dcc.compgraf.im.crop.Cropper;
 import br.ufrj.dcc.compgraf.im.resize.NearestNeighborResize;
 import br.ufrj.dcc.compgraf.im.resize.KeepAspectRatioResize.KeepAspectRatioType;
@@ -59,6 +61,16 @@ public class App {
       
       newImage = new Flip().flip(image, FlipOrientation.VERTICALLY);
       ImageIO.write(newImage, "jpeg", new File("flip_v.jpg"));
+      
+      newImage = new GreyScale().toGreyScale(image, GreyScaleType.AVERAGE);
+      ImageIO.write(newImage, "jpeg", new File("grey_average.jpg"));
+      
+      newImage = new GreyScale().toGreyScale(image, GreyScaleType.LIGHTNESS);
+      ImageIO.write(newImage, "jpeg", new File("grey_lightness.jpg"));
+      
+      newImage = new GreyScale().toGreyScale(image, GreyScaleType.LUMINOSITY);
+      ImageIO.write(newImage, "jpeg", new File("grey_luminosity.jpg"));
+      
     } catch (IOException e) {
       log.error(e, e);
     }
