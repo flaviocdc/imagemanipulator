@@ -29,7 +29,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package br.ufrj.dcc.compgraf.im.ui;
+package br.ufrj.dcc.compgraf.im.ui.file;
 
 import java.io.File;
 import java.util.Set;

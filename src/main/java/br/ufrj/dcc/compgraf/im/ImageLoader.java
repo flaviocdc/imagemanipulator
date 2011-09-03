@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import br.ufrj.dcc.compgraf.im.ui.FileChooser;
+import br.ufrj.dcc.compgraf.im.ui.file.FileChooser;
 
 public class ImageLoader
 {

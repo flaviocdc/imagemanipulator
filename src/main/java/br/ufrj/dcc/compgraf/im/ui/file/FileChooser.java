@@ -1,4 +1,4 @@
-package br.ufrj.dcc.compgraf.im.ui;
+package br.ufrj.dcc.compgraf.im.ui.file;
 
 import java.io.File;
 
