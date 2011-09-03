@@ -11,6 +11,8 @@ import org.apache.log4j.Logger;
 import br.ufrj.dcc.compgraf.im.crop.Cropper;
 import br.ufrj.dcc.compgraf.im.resize.NearestNeighborResize;
 import br.ufrj.dcc.compgraf.im.resize.KeepAspectRatioResize.KeepAspectRatioType;
+import br.ufrj.dcc.compgraf.im.transform.Flip;
+import br.ufrj.dcc.compgraf.im.transform.Flip.FlipOrientation;
 import br.ufrj.dcc.compgraf.im.transform.Rotate;
 import br.ufrj.dcc.compgraf.im.transform.Rotate.Degree;
 
@@ -51,6 +53,12 @@ public class App {
 
       newImage = new Rotate().rotate(image, Degree.ROTATE_270);
       ImageIO.write(newImage, "jpeg", new File("rotate_270.jpg"));
+      
+      newImage = new Flip().flip(image, FlipOrientation.HORIZONTALLY);
+      ImageIO.write(newImage, "jpeg", new File("flip_h.jpg"));
+      
+      newImage = new Flip().flip(image, FlipOrientation.VERTICALLY);
+      ImageIO.write(newImage, "jpeg", new File("flip_v.jpg"));
     } catch (IOException e) {
       log.error(e, e);
     }
