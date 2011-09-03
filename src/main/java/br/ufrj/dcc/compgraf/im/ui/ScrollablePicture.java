@@ -49,7 +49,7 @@ public class ScrollablePicture extends JLabel implements Scrollable,
     MouseMotionListener
 {
 
-  public static int INCREMENT = (int)((double) Toolkit.getDefaultToolkit().getScreenResolution() / (double)2.54); 
+  public static int INCREMENT = (int)((double) Toolkit.getDefaultToolkit().getScreenResolution() / (double) 2.54); 
   
   private int maxUnitIncrement = 1;
   private boolean missingPicture = false;
@@ -88,7 +88,7 @@ public class ScrollablePicture extends JLabel implements Scrollable,
   {
     if (missingPicture)
     {
-      return new Dimension(320, 480);
+      return new Dimension(500, 500);
     }
     else
     {

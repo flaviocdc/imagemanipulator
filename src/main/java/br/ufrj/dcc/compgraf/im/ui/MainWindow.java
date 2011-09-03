@@ -7,7 +7,6 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -44,7 +43,7 @@ public class MainWindow extends JFrame
     add(mainPanel);
     
     mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
-    mainPanel.add(new JLabel("Botoes"));
+    mainPanel.add(new ToolboxPanel());
     mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
     
     createImageCanvas();
