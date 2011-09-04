@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import br.ufrj.dcc.compgraf.im.ui.options.FlipOptionsDialog;
 import br.ufrj.dcc.compgraf.im.ui.options.GreyScaleOptionsDialog;
 import br.ufrj.dcc.compgraf.im.ui.options.ResizeOptionsDialog;
+import br.ufrj.dcc.compgraf.im.ui.options.RotateOptionsDialog;
 
 public class ToolboxPanel extends JPanel
 {
@@ -34,7 +35,6 @@ public class ToolboxPanel extends JPanel
       }
     });
     
-    JButton cropButton = new JButton("Crop");
     JButton greyScaleButton = new JButton("Greyscale");
     greyScaleButton.addActionListener(new ActionListener()
     {
@@ -54,7 +54,17 @@ public class ToolboxPanel extends JPanel
         new FlipOptionsDialog().setVisible(true);
       }
     });
+    
+    JButton cropButton = new JButton("Crop");
     JButton rotateButton = new JButton("Rotate");
+    rotateButton.addActionListener(new ActionListener()
+    {
+      @Override
+      public void actionPerformed(ActionEvent e)
+      {
+        new RotateOptionsDialog().setVisible(true);
+      }
+    });
     
     add(resizeButton);
     add(Box.createRigidArea(new Dimension(0, 10)));
