@@ -17,6 +17,7 @@ import br.ufrj.dcc.compgraf.im.transform.Flip;
 import br.ufrj.dcc.compgraf.im.transform.Flip.FlipOrientation;
 import br.ufrj.dcc.compgraf.im.transform.Rotate;
 import br.ufrj.dcc.compgraf.im.transform.Rotate.Degree;
+import br.ufrj.dcc.compgraf.im.transform.Rotate.Direction;
 
 public class App {
   private static Logger log = Logger.getLogger(App.class);
@@ -47,13 +48,13 @@ public class App {
       newImage = new NearestNeighborResize().resize(KeepAspectRatioType.HORIZONTAL, image, 250, 200);
       ImageIO.write(newImage, "jpeg", new File("resize_reduce_keep_arh.jpg"));
       
-      newImage = new Rotate().rotate(image, Degree.ROTATE_90);
+      newImage = new Rotate().rotate(image, Degree.ROTATE_90, Direction.COUNTER_CLOCKWISE);
       ImageIO.write(newImage, "jpeg", new File("rotate_90.jpg"));
 
-      newImage = new Rotate().rotate(image, Degree.ROTATE_180);
+      newImage = new Rotate().rotate(image, Degree.ROTATE_180, Direction.COUNTER_CLOCKWISE);
       ImageIO.write(newImage, "jpeg", new File("rotate_180.jpg"));
 
-      newImage = new Rotate().rotate(image, Degree.ROTATE_270);
+      newImage = new Rotate().rotate(image, Degree.ROTATE_270, Direction.COUNTER_CLOCKWISE);
       ImageIO.write(newImage, "jpeg", new File("rotate_270.jpg"));
       
       newImage = new Flip().flip(image, FlipOrientation.HORIZONTALLY);
