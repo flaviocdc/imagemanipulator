@@ -9,6 +9,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import br.ufrj.dcc.compgraf.im.ui.options.FlipOptionsDialog;
 import br.ufrj.dcc.compgraf.im.ui.options.GreyScaleOptionsDialog;
 import br.ufrj.dcc.compgraf.im.ui.options.ResizeOptionsDialog;
 
@@ -45,6 +46,14 @@ public class ToolboxPanel extends JPanel
     });
     
     JButton flipButton = new JButton("Flip");
+    flipButton.addActionListener(new ActionListener()
+    {
+      @Override
+      public void actionPerformed(ActionEvent e)
+      {
+        new FlipOptionsDialog().setVisible(true);
+      }
+    });
     JButton rotateButton = new JButton("Rotate");
     
     add(resizeButton);
