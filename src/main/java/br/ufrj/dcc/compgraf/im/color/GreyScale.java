@@ -11,7 +11,7 @@ public class GreyScale
 
   public enum GreyScaleType
   {
-    LIGHTNESS
+    LIGHTNESS("Lightness")
     {
 
       @Override
@@ -28,7 +28,7 @@ public class GreyScale
       
     },
     
-    AVERAGE
+    AVERAGE("Average")
     {
 
       @Override
@@ -42,7 +42,7 @@ public class GreyScale
       
     },
     
-    LUMINOSITY
+    LUMINOSITY("Luminosity")
     {
 
       @Override
@@ -57,6 +57,18 @@ public class GreyScale
     };
     
     protected abstract int toGreyScale(int rgb);
+    
+    private final String name;
+    
+    private GreyScaleType(String name)
+    {
+      this.name = name;
+    }
+    
+    public String descriptiveName()
+    {
+      return name;
+    }
   }
   
   public BufferedImage toGreyScale(BufferedImage source, GreyScaleType type)
