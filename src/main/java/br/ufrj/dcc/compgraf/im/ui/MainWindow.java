@@ -15,6 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 
 import br.ufrj.dcc.compgraf.im.ui.actions.OpenFileActionListener;
+import br.ufrj.dcc.compgraf.im.ui.actions.SaveFileActionListener;
 
 public class MainWindow extends JFrame
 {
@@ -76,6 +77,7 @@ public class MainWindow extends JFrame
     JMenuItem closeMenuItem = new JMenuItem("Close");
     
     openMenuItem.addActionListener(new OpenFileActionListener());
+    saveMenuItem.addActionListener(new SaveFileActionListener());
     
     fileMenu.add(openMenuItem);
     fileMenu.add(saveMenuItem);

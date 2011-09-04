@@ -13,7 +13,7 @@ public class ImageLoader
 
   public static BufferedImage loadImage() throws IOException
   {
-    File selectedFile = FileChooser.chooseFile(".");
+    File selectedFile = FileChooser.open(".");
 
     return selectedFile == null ? null : ImageIO.read(selectedFile);
   }
