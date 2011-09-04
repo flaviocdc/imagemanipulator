@@ -16,6 +16,7 @@ import javax.swing.SwingUtilities;
 
 import br.ufrj.dcc.compgraf.im.ui.actions.OpenFileActionListener;
 import br.ufrj.dcc.compgraf.im.ui.actions.SaveFileActionListener;
+import br.ufrj.dcc.compgraf.im.ui.swing.ext.ScrollablePicture;
 
 public class MainWindow extends JFrame
 {

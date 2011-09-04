@@ -5,12 +5,24 @@ public abstract class KeepAspectRatioResize implements Resize
 
   public enum KeepAspectRatioType
   {
-    HORIZONTAL, VERTICAL, NONE
+    HORIZONTAL("Horizontally"),
+    VERTICAL("Vertically"),
+    DONT_KEEP("No");
+    
+    private final String name;
+    
+    private KeepAspectRatioType(String name) {
+      this.name = name;
+    }
+    
+    public String descriptiveName() {
+      return name;
+    }
   }
 
   public ImageSize calculateImageSize(KeepAspectRatioType type, int originalX, int originalY, int newX, int newY)
   {
-    if (type == KeepAspectRatioType.NONE)
+    if (type == KeepAspectRatioType.DONT_KEEP)
     {
       return new ImageSize(newX, newY);
     }

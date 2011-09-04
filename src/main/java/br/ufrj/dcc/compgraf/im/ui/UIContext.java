@@ -5,6 +5,8 @@ import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 
+import br.ufrj.dcc.compgraf.im.ui.swing.ext.ScrollablePicture;
+
 public class UIContext
 {
   private static UIContext instance;

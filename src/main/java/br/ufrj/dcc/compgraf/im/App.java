@@ -35,10 +35,10 @@ public class App {
       BufferedImage newImage = new Cropper(image).crop(20, 0, 100, 80);
       ImageIO.write(newImage, "jpeg", new File("crop.jpg"));
       
-      newImage = new NearestNeighborResize().resize(KeepAspectRatioType.NONE,image, 200, 200);
+      newImage = new NearestNeighborResize().resize(KeepAspectRatioType.DONT_KEEP,image, 200, 200);
       ImageIO.write(newImage, "jpeg", new File("resize_enlarge.jpg"));
       
-      newImage = new NearestNeighborResize().resize(KeepAspectRatioType.NONE, image, 50, 50);
+      newImage = new NearestNeighborResize().resize(KeepAspectRatioType.DONT_KEEP, image, 50, 50);
       ImageIO.write(newImage, "jpeg", new File("resize_reduce.jpg"));
       
       newImage = new NearestNeighborResize().resize(KeepAspectRatioType.VERTICAL, image, 250, 200);
