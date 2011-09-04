@@ -28,5 +28,12 @@ public class SwingUtils
         JComponent.WHEN_IN_FOCUSED_WINDOW);
 
   }
+  
+  public static void configureDialog(JDialog dialog)
+  {
+    dialog.setLocationRelativeTo(UIContext.instance().getMainWindow());
+    SwingUtils.addEscapeListener(dialog);
+    dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+  }
 
 }

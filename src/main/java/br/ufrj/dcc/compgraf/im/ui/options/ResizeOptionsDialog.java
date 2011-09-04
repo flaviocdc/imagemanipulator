@@ -48,8 +48,7 @@ public class ResizeOptionsDialog extends JDialog
     
     setSize(240, 240);
     
-    SwingUtils.addEscapeListener(this);
-    setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    SwingUtils.configureDialog(this);
   }
 
   private void initLayout()
