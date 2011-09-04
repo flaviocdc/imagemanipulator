@@ -58,7 +58,7 @@ public class GreyScaleOptionsDialog extends JDialog
       }
     });
     
-    add(new JLabel("Type"));
+    add(new JLabel("Type:"));
     add(typesCombo);
     add(applyButton);
   }
