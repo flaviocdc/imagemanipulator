@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.util.Stack;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -104,8 +105,12 @@ public class ToolboxPanel extends JPanel
       @Override
       public void actionPerformed(ActionEvent e)
       {
-        BufferedImage image = UIContext.instance().getImages().pop();
-        UIContext.instance().changeCurrentImage(image, true);
+        Stack<BufferedImage> images = UIContext.instance().getImages();
+        if (!images.isEmpty())
+        {
+          BufferedImage image = images.pop();
+          UIContext.instance().changeCurrentImage(image, true);
+        }
       }
     });
     
