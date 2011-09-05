@@ -46,8 +46,13 @@ public class UIContext
     return imageScrollPane;
   }
 
-  public void changeCurrentImage(BufferedImage image)
+  public void changeCurrentImage(BufferedImage image, boolean isUndo)
   {
+    if(!isUndo)
+    {
+      images.push(currentImage);
+    }
+	
     currentImage = image;
     
     ImageIcon icon = new ImageIcon(image);
@@ -71,6 +76,16 @@ public class UIContext
     };
     
     imageScrollPane.setViewportView(scrlImg);
+  }
+  
+  public Stack<BufferedImage> getImages()
+  {
+    return images;
+  }
+
+  public void changeCurrentImage(BufferedImage image)
+  {
+    changeCurrentImage(image, false);
   }
 
   public MainWindow getMainWindow()
