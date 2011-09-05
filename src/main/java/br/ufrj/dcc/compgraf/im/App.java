@@ -33,7 +33,7 @@ public class App {
         return;
       }
       
-      BufferedImage newImage = new Cropper(image).crop(20, 0, 100, 80);
+      BufferedImage newImage = new Cropper().crop(image, 20, 0, 100, 80);
       ImageIO.write(newImage, "jpeg", new File("crop.jpg"));
       
       newImage = new NearestNeighborResize().resize(KeepAspectRatioType.DONT_KEEP,image, 200, 200);

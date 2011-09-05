@@ -9,10 +9,13 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import br.ufrj.dcc.compgraf.im.crop.CropContext;
+import br.ufrj.dcc.compgraf.im.crop.CropMouseAdapter;
 import br.ufrj.dcc.compgraf.im.ui.options.FlipOptionsDialog;
 import br.ufrj.dcc.compgraf.im.ui.options.GreyScaleOptionsDialog;
 import br.ufrj.dcc.compgraf.im.ui.options.ResizeOptionsDialog;
 import br.ufrj.dcc.compgraf.im.ui.options.RotateOptionsDialog;
+import br.ufrj.dcc.compgraf.im.ui.swing.ext.ScrollablePicture;
 
 public class ToolboxPanel extends JPanel
 {
@@ -56,6 +59,34 @@ public class ToolboxPanel extends JPanel
     });
     
     JButton cropButton = new JButton("Crop");
+    cropButton.addActionListener(new ActionListener()
+    {
+      @Override
+      public void actionPerformed(ActionEvent e)
+      {
+        ScrollablePicture pic = (ScrollablePicture) UIContext.instance().getImageScrollPane().getViewport().getView();
+        
+        CropMouseAdapter cma = CropMouseAdapter.instance();
+        CropContext cc = CropContext.instance();
+        
+        if (!cc.isCropRunning())
+        {
+          pic.addMouseListener(cma);
+          pic.addMouseMotionListener(cma);
+          cc.setCropRunning(true);
+        }
+        else
+        {
+          pic.removeMouseListener(cma);
+          pic.removeMouseMotionListener(cma);
+          
+          cc.setCropRunning(false);
+          
+          UIContext.instance().getImageScrollPane().repaint();
+        }
+      }
+    });
+    
     JButton rotateButton = new JButton("Rotate");
     rotateButton.addActionListener(new ActionListener()
     {

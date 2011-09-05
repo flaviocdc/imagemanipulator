@@ -4,14 +4,8 @@ import java.awt.image.BufferedImage;
 
 public class Cropper
 {
-  private BufferedImage originalImage;
 
-  public Cropper(BufferedImage originalImage)
-  {
-    this.originalImage = originalImage;
-  }
-
-  public BufferedImage crop(int startx, int starty, int endx, int endy)
+  public BufferedImage crop(BufferedImage originalImage, int startx, int starty, int endx, int endy)
   {
     int newWidth = Math.abs(endx - startx);
     int newHeight = Math.abs(endy - starty);
