@@ -54,7 +54,7 @@ public class ImageFilter extends FileFilter
       supportedFormats.add(format.toLowerCase());
     }
 
-    String extension = extractExtension(f);
+    String extension = FileUtils.extractExtension(f);
 
     if (extension != null)
     {
@@ -64,14 +64,6 @@ public class ImageFilter extends FileFilter
     {
       return false;
     }
-  }
-
-  private String extractExtension(File f)
-  {
-    if (f.getAbsolutePath().lastIndexOf('.') == -1)
-      return null;
-
-    return f.getAbsolutePath().substring(f.getAbsolutePath().lastIndexOf('.') + 1);
   }
 
   // The description of this filter

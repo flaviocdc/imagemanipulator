@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 
 import br.ufrj.dcc.compgraf.im.ui.UIContext;
 import br.ufrj.dcc.compgraf.im.ui.file.FileChooser;
+import br.ufrj.dcc.compgraf.im.ui.file.FileUtils;
 
 public class SaveFileActionListener implements ActionListener
 {
@@ -21,10 +22,11 @@ public class SaveFileActionListener implements ActionListener
   public void actionPerformed(ActionEvent event)
   {
     File destinationFile = FileChooser.save();
+    String extension = FileUtils.extractExtension(destinationFile);
     
     try
     {
-      ImageIO.write(UIContext.instance().getCurrentImage(), "jpeg", destinationFile);
+      ImageIO.write(UIContext.instance().getCurrentImage(), extension == null ? "jpeg" : extension, destinationFile);
     }
     catch (IOException e)
     {
