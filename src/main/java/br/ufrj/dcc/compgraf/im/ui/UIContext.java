@@ -2,6 +2,7 @@ package br.ufrj.dcc.compgraf.im.ui;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.util.Stack;
 
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
@@ -16,6 +17,7 @@ public class UIContext
   private BufferedImage currentImage;
   private JScrollPane imageScrollPane;
   private MainWindow mainWindow;
+  private Stack<BufferedImage> images = new Stack<BufferedImage>();
   
   private UIContext() {}
   

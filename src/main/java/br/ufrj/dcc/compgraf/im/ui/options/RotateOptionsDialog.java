@@ -85,7 +85,7 @@ public class RotateOptionsDialog extends JDialog
         int selectedRotation = rotateCombo.getSelectedIndex();
         Degree degree = Degree.values()[selectedRotation];
 
-        int selectedDirection = rotateCombo.getSelectedIndex();
+        int selectedDirection = directionCombo.getSelectedIndex();
         Direction dir = Direction.values()[selectedDirection];
         
         BufferedImage newImg = new Rotate().rotate(UIContext.instance().getCurrentImage(), degree, dir);

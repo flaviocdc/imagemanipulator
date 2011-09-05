@@ -56,6 +56,10 @@ public class CropMouseAdapter extends MouseAdapter
       pic.repaint();
       pic.removeMouseListener(CropMouseAdapter.instance());
       pic.removeMouseMotionListener(CropMouseAdapter.instance());
+      
+      nextClickIsCrop = false;
+      cc.setClickedPixel(null);
+      cc.setCurrentPixel(null);
     }
   }
   

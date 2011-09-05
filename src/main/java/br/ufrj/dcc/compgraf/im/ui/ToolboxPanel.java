@@ -97,6 +97,15 @@ public class ToolboxPanel extends JPanel
       }
     });
     
+    JButton undoButton = new JButton("Undo");
+    undoButton.addActionListener(new ActionListener()
+    {
+      @Override
+      public void actionPerformed(ActionEvent e)
+      {
+      }
+    });
+    
     add(resizeButton);
     add(Box.createRigidArea(new Dimension(0, 10)));
     add(cropButton);
