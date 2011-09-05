@@ -54,6 +54,8 @@ public class CropMouseAdapter extends MouseAdapter
       
       ScrollablePicture pic = (ScrollablePicture) e.getSource();
       pic.repaint();
+      pic.removeMouseListener(CropMouseAdapter.instance());
+      pic.removeMouseMotionListener(CropMouseAdapter.instance());
     }
   }
   
